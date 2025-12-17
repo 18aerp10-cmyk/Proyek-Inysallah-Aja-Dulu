@@ -1,0 +1,8 @@
+program ReservasiKursiBioskop;
+uses crt;
+
+begin
+    clrscr;
+    writeln('Program Reservasi Kursi Bioskop');
+    readln;
+end.
