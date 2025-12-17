@@ -60,3 +60,26 @@ begin
     readln;
     clrscr;
 end;
+
+procedure BatalkanKursi;
+begin
+    clrscr;
+    write('Masukkan nomor kursi yang ingin dibatalkan (1-20) : ');
+    readln(NomorKursi);
+
+    if (NomorKursi < 1) or (NomorKursi > 20) then
+        writeln('Waduhh, Nomor kursi tidak valid')
+    else if not Kursi[NomorKursi].Isi then
+        writeln('Kursi belum dipesan.')
+    else
+    begin
+        Kursi[NomorKursi].Isi := false;
+        writeln('Reservasi kursi berhasil dibatalkan.');
+    end;
+
+    writeln;
+    writeln('Tekan enter untuk kembali ke menu');
+    readln;
+    clrscr;
+end;
+
