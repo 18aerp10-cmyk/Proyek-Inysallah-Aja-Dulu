@@ -1,0 +1,19 @@
+program ReservasiKursiBioskop;
+uses crt;
+
+type
+    DataKursi = record
+           Isi: boolean;
+    end;
+
+var
+    Kursi: array[1..20] of DataKursi;
+    Pilihan, NomorKursi: integer;
+
+procedure Inisialisasi;
+var
+    i: integer;
+begin
+    for i := 1 to 20 do
+        Kursi[i].Isi := false;
+end;
