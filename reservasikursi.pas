@@ -1,0 +1,122 @@
+program ReservasiKursi;
+uses crt;
+
+type
+    DataKursi = record
+        Isi: boolean;
+    end;
+
+var
+    Kursi: array[1..20] of DataKursi;
+    Pilihan, NomorKursi: integer;
+
+procedure Inisialisasi;
+var
+    i: integer;
+begin
+    for i := 1 to 20 do
+        Kursi[i].Isi := false;
+end;
+
+procedure LihatKursi;
+var
+    i: integer;
+begin
+    clrscr;
+    writeln('Status Kursi (O = Kosong, X = Terisi)');
+    writeln;
+    for i := 1 to 20 do
+    begin
+        if Kursi[i].Isi then
+        write('[X] ')
+        else
+        write('[O] ');
+        if i mod 5 = 0 then
+        writeln;
+    end;
+    writeln;
+    writeln('Silahkan tekan enter untuk kembali ke menu yaaaa');
+    readln;
+    clrscr;
+end;
+
+procedure PesanKursi;
+begin
+    clrscr;
+    write('Masukkan nomor kursi yang ingin dipesan (1-20) : ');
+    readln(NomorKursi);
+
+    if (NomorKursi < 1) or (NomorKursi > 20) then
+        writeln('Waduhh, nomor kursi tidak valid')
+    else if Kursi[NomorKursi].Isi then
+        writeln('Maaf, Kursi sudah terisi')
+    else
+    begin
+        Kursi[NomorKursi].Isi := true;
+        writeln('Nice, Kursi berhasil dipesan');
+    end;
+
+    writeln;
+    writeln('Silahkan tekan enter untuk kembali ke menu yaaaa');
+    readln;
+    clrscr;
+end;
+
+procedure BatalkanKursi;
+begin
+    clrscr;
+    write('Masukkan nomor kursi yang ingin dibatalkan (1-20) : ');
+    readln(NomorKursi);
+
+    if (NomorKursi < 1) or (NomorKursi > 20) then
+    writeln('Waduhh, Nomor kursi tidak valid')
+    else if not Kursi[NomorKursi].Isi then
+    writeln('Kursi belum dipesan.')
+    else
+    begin
+        Kursi[NomorKursi].Isi := false;
+        writeln('Reservasi kursi berhasil dibatalkan.');
+    end;
+
+    writeln;
+    writeln('Tekan enter untuk kembali ke menu');
+    readln;
+    clrscr;
+end;
+
+begin
+    clrscr;
+    Inisialisasi;
+
+    repeat
+        writeln('Berikut Menu Reservasi Kursi');
+        writeln('--------------------');
+        writeln('1. Lihat Kursi');
+        writeln('2. Pesan Kursi');
+        writeln('3. Batalkan Kursi');
+        writeln('4. Keluar');
+        writeln('--------------------');
+        write('Pilih menu (1-4) : ');
+        readln(Pilihan);
+
+        case Pilihan of
+        1: LihatKursi;
+        2: PesanKursi;
+        3: BatalkanKursi;
+        4: begin
+            clrscr;
+            writeln('YEAYY, Terima kasih telah menggunakan program reservasi');
+            writeln;
+            end;
+        else
+        begin
+            clrscr;
+            writeln('Pilihan tidak valid');
+            writeln;
+            writeln('Tekan enter untuk memilih ulang');
+            readln;
+            clrscr;
+        end;
+        end;
+    until Pilihan = 4;
+end.
