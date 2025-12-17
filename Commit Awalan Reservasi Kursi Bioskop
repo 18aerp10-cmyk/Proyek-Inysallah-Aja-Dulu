@@ -38,3 +38,25 @@ begin
     readln;
     clrscr;
 end;
+
+procedure PesanKursi;
+begin
+    clrscr;
+    write('Masukkan nomor kursi yang ingin dipesan (1-20) : ');
+    readln(NomorKursi);
+
+    if (NomorKursi < 1) or (NomorKursi > 20) then
+        writeln('Waduhh, nomor kursi tidak valid')
+    else if Kursi[NomorKursi].Isi then
+        writeln('Maaf, Kursi sudah terisi')
+    else
+    begin
+        Kursi[NomorKursi].Isi := true;
+        writeln('Nice, Kursi berhasil dipesan');
+    end;
+
+    writeln;
+    writeln('Silahkan tekan enter untuk kembali ke menu yaaaa');
+    readln;
+    clrscr;
+end;
