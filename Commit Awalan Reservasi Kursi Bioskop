@@ -1,4 +1,4 @@
-program ReservasiKursi;
+program ReservasiKursiBioskop;
 uses crt;
 
 type
@@ -18,7 +18,7 @@ begin
         Kursi[i].Isi := false;
 end;
 
-procedure LihatKursi;
+procedure LihatKursiBioskop;
 var
     i: integer;
 begin
@@ -40,7 +40,7 @@ begin
     clrscr;
 end;
 
-procedure PesanKursi;
+procedure PesanKursiBioskop;
 begin
     clrscr;
     write('Masukkan nomor kursi yang ingin dipesan (1-20) : ');
@@ -62,20 +62,20 @@ begin
     clrscr;
 end;
 
-procedure BatalkanKursi;
+procedure BatalkanKursiBioskop;
 begin
     clrscr;
     write('Masukkan nomor kursi yang ingin dibatalkan (1-20) : ');
     readln(NomorKursi);
 
     if (NomorKursi < 1) or (NomorKursi > 20) then
-        writeln('Waduhh, Nomor kursi tidak valid')
+        writeln('Waduhh, Nomor kursi tidak valid nihh')
     else if not Kursi[NomorKursi].Isi then
-        writeln('Kursi belum dipesan.')
+        writeln('Kursi belum dipesan')
     else
     begin
         Kursi[NomorKursi].Isi := false;
-        writeln('Reservasi kursi berhasil dibatalkan.');
+        writeln('Reservasi kursi berhasil dibatalkan yaaa');
     end;
 
     writeln;
@@ -99,19 +99,19 @@ begin
         write('Pilih menu (1-4) : ');
         readln(Pilihan);
 
-case Pilihan of
+        case Pilihan of
         1: LihatKursi;
         2: PesanKursi;
         3: BatalkanKursi;
         4: begin
             clrscr;
-            writeln('YEAYY, Terima kasih telah menggunakan program reservasi');
+            writeln('YEAYY, Terima kasih telah menggunakan program reservasi kursi bioskop');
             writeln;
             end;
         else
         begin
             clrscr;
-            writeln('Pilihan tidak valid');
+            writeln('Maaf, pilihan tidak valid');
             writeln;
             writeln('Tekan enter untuk memilih ulang');
             readln;
