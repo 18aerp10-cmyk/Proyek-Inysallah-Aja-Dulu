@@ -100,9 +100,9 @@ begin
         readln(Pilihan);
 
         case Pilihan of
-        1: LihatKursi;
-        2: PesanKursi;
-        3: BatalkanKursi;
+        1: LihatKursiBioskop;
+        2: PesanKursiBioskop;
+        3: BatalkanKursiBioskop;
         4: begin
             clrscr;
             writeln('YEAYY, Terima kasih telah menggunakan program reservasi kursi bioskop');
