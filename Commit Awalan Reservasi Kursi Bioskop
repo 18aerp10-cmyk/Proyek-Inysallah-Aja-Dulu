@@ -21,3 +21,29 @@ begin
     writeln('Program Reservasi Kursi');
     readln;
 end.
+
+program ReservasiKursi;
+uses crt;
+
+type
+    DataKursi = record
+        Isi: boolean;
+    end;
+
+var
+    Kursi: array[1..20] of DataKursi;
+
+procedure Inisialisasi;
+var
+    i: integer;
+begin
+    for i := 1 to 20 do
+        Kursi[i].Isi := false;
+end;
+
+begin
+    clrscr;
+    Inisialisasi;
+    writeln('Kursi berhasil diinisialisasi');
+    readln;
+end.
