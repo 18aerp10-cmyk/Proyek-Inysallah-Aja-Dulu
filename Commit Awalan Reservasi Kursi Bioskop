@@ -83,3 +83,17 @@ begin
     clrscr;
 end;
 
+begin
+    clrscr;
+    Inisialisasi;
+
+    repeat
+        writeln('Berikut Menu Reservasi Kursi');
+        writeln('--------------------');
+        writeln('1. Lihat Kursi');
+        writeln('2. Pesan Kursi');
+        writeln('3. Batalkan Kursi');
+        writeln('4. Keluar');
+        writeln('--------------------');
+        write('Pilih menu (1-4) : ');
+        readln(Pilihan);
