@@ -5,6 +5,7 @@ type
     DataKursi = record
         Isi: boolean;
     end;
+
 var
     Kursi: array[1..20] of DataKursi;
     Pilihan, NomorKursi: integer;
@@ -97,3 +98,25 @@ begin
         writeln('--------------------');
         write('Pilih menu (1-4) : ');
         readln(Pilihan);
+
+case Pilihan of
+        1: LihatKursi;
+        2: PesanKursi;
+        3: BatalkanKursi;
+        4: begin
+            clrscr;
+            writeln('YEAYY, Terima kasih telah menggunakan program reservasi');
+            writeln;
+            end;
+        else
+        begin
+            clrscr;
+            writeln('Pilihan tidak valid');
+            writeln;
+            writeln('Tekan enter untuk memilih ulang');
+            readln;
+            clrscr;
+        end;
+        end;
+    until Pilihan = 4;
+end.
