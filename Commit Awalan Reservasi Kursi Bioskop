@@ -6,3 +6,18 @@ begin
     writeln('Program Reservasi Kursi Bioskop');
     readln;
 end.
+
+program ReservasiKursi;
+uses crt;
+
+type
+    DataKursi = record
+        Isi: boolean;
+    end;
+var
+    Kursi: array[1..20] of DataKursi;
+begin
+    clrscr;
+    writeln('Program Reservasi Kursi');
+    readln;
+end.
