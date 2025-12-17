@@ -1,12 +1,3 @@
-program ReservasiKursiBioskop;
-uses crt;
-
-begin
-    clrscr;
-    writeln('Program Reservasi Kursi Bioskop');
-    readln;
-end.
-
 program ReservasiKursi;
 uses crt;
 
@@ -16,33 +7,34 @@ type
     end;
 var
     Kursi: array[1..20] of DataKursi;
+    Pilihan, NomorKursi: integer;
+
+procedure Inisialisasi;
+var
+    i: integer;
+begin
+    for i := 1 to 20 do
+        Kursi[i].Isi := false;
+end;
+
+procedure LihatKursi;
+var
+    i: integer;
 begin
     clrscr;
-    writeln('Program Reservasi Kursi');
-    readln;
-end.
-
-program ReservasiKursi;
-uses crt;
-type
-    DataKursi = record
-        Isi: boolean;
+    writeln('Status Kursi (O = Kosong, X = Terisi)');
+    writeln;
+    for i := 1 to 20 do
+    begin
+        if Kursi[i].Isi then
+        write('[X] ')
+        else
+        write('[O] ');
+        if i mod 5 = 0 then
+        writeln;
     end;
-var
-    Kursi: array[1..20] of DataKursi;
-
-var
-    Pilihan: integer;
-
-begin
+    writeln;
+    writeln('Silahkan tekan enter untuk kembali ke menu yaaaa');
+    readln;
     clrscr;
-    Inisialisasi;
-
-    writeln('Menu Reservasi Kursi');
-    writeln('1. Lihat Kursi');
-    writeln('2. Pesan Kursi');
-    writeln('3. Batalkan Kursi');
-    writeln('4. Keluar');
-    write('Pilih menu: ');
-    readln(Pilihan);
-end.
+end;
